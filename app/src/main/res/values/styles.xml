@@ -8,4 +8,35 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="NormalKeys" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="android:textColor">@color/primaryKey</item>
+        <item name="rippleColor">@color/primaryKeyRipple</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+
+    <style name="ActionKeys" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:textAllCaps">true</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+
+    <style name="ActionKeys.Primary" >
+        <item name="strokeColor">@color/primaryKey</item>
+        <item name="android:textColor">@color/primaryKey</item>
+        <item name="rippleColor">@color/primaryKeyRipple</item>
+
+    </style>
+
+    <style name="ActionKeys.Danger">
+        <item name="strokeColor">@color/dangerKey</item>
+        <item name="android:textColor">@color/dangerKey</item>
+        <item name="rippleColor">@color/dangerKeyRipple</item>
+    </style>
+
+    <style name="ActionKeys.Success">
+        <item name="strokeColor">@color/successKey</item>
+        <item name="android:textColor">@color/successKey</item>
+        <item name="rippleColor">@color/successKeyRipple</item>
+    </style>
 </resources>

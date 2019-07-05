@@ -11,7 +11,7 @@ import android.view.inputmethod.InputConnection;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
-import android.widget.Toast;
+import android.widget.TextView;
 
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
@@ -19,12 +19,13 @@ import com.google.android.material.textfield.TextInputLayout;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    Spinner mFromBaseSpinner, mToBaseSpinner;
-    TextInputLayout mInputNumber, mConvertedNumber;
-    TextInputEditText mInputNumberEditText,mConvertedNumberEditText;
-    MaterialButton mButtonReset, mButtonConvert;
+    private Spinner mFromBaseSpinner, mToBaseSpinner;
+    private TextInputLayout mInputNumber, mConvertedNumber;
+    private TextInputEditText mInputNumberEditText, mConvertedNumberEditText;
+    private MaterialButton mButtonReset, mButtonConvert;
     private int mSelectedBaseFrom, mSelectedBaseTo;
     private GeekofiaKeyboard keyboard;
+    private TextView mButtonSwap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,14 +40,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 String baseSplitFrom[] = mFromBaseSpinner.getSelectedItem().toString().split(" ");
                 mSelectedBaseFrom = Integer.parseInt(baseSplitFrom[0]);
 
-                if (mSelectedBaseFrom == 16){
+                if (mSelectedBaseFrom == 16) {
                     mInputNumberEditText.setInputType(InputType.TYPE_CLASS_TEXT);
                     mInputNumberEditText.setTextIsSelectable(true);
 
                     mInputNumberEditText.setShowSoftInputOnFocus(false);
                     InputConnection ic = mInputNumberEditText.onCreateInputConnection(new EditorInfo());
                     keyboard.setInputConnection(ic);
-                }else {
+                } else {
                     mInputNumberEditText.setInputType(InputType.TYPE_CLASS_NUMBER);
                     mInputNumberEditText.setTextIsSelectable(true);
                     mInputNumberEditText.setShowSoftInputOnFocus(false);
@@ -56,8 +57,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
 
                 String mHintFromBase = baseSplitFrom[1];
-                mHintFromBase = mHintFromBase.replace("(","");
-                mHintFromBase = mHintFromBase.replace(")","");
+                mHintFromBase = mHintFromBase.replace("(", "");
+                mHintFromBase = mHintFromBase.replace(")", "");
                 mInputNumber.setHint(mHintFromBase);
             }
 
@@ -75,8 +76,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 mSelectedBaseTo = Integer.parseInt(baseSplitTo[0]);
 
                 String mHintToBase = baseSplitTo[1];
-                mHintToBase = mHintToBase.replace("(","");
-                mHintToBase = mHintToBase.replace(")","");
+                mHintToBase = mHintToBase.replace("(", "");
+                mHintToBase = mHintToBase.replace(")", "");
                 mConvertedNumber.setHint(mHintToBase);
             }
 
@@ -86,6 +87,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 
+        mInputNumberEditText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean b) {
+                int FOCUS_INT = keyboard.getVisibility();
+                if (FOCUS_INT == 8) {
+                    keyboard.setVisibility(View.VISIBLE);
+                } else {
+                    keyboard.setVisibility(View.GONE);
+                }
+            }
+        });
+
+        mButtonSwap.setOnClickListener(this);
         mButtonReset.setOnClickListener(this);
         mButtonConvert.setOnClickListener(this);
     }
@@ -97,6 +111,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 R.array.array_select_base, android.R.layout.simple_spinner_item);
         mFromAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mFromBaseSpinner.setAdapter(mFromAdapter);
+
+        mButtonSwap = findViewById(R.id.button_swap);
 
         // To Base Spinner
         mToBaseSpinner = findViewById(R.id.spinner_to);
@@ -121,12 +137,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
-            case R.id.button_reset:
-                 mInputNumberEditText.setText("");
-                 mConvertedNumberEditText.setText("");
-
+        switch (view.getId()) {
+            case R.id.button_swap:
+                int mFromSelecton = mFromBaseSpinner.getSelectedItemPosition();
+                mFromBaseSpinner.setSelection(mToBaseSpinner.getSelectedItemPosition());
+                mToBaseSpinner.setSelection(mFromSelecton);
                 break;
+
+            case R.id.button_reset:
+                mInputNumberEditText.setText("");
+                mConvertedNumberEditText.setText("");
+                break;
+
             case R.id.button_convert:
                 String test = mInputNumberEditText.getText().toString();
                 mConvertedNumberEditText.setText(test);

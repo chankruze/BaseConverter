@@ -8,7 +8,15 @@
     <color name="colorPrimaryDark">#000000</color>
     <color name="colorAccent">#D81B60</color>
 
-    <color name="danger">#F00</color>
-    <color name="black">#000</color>
-    <color name="success">#008577</color>
+    <color name="blackKey">#000</color>
+    <color name="blackKeyRipple">#1A000000</color>
+
+    <color name="primaryKey">#007BFF</color>
+    <color name="primaryKeyRipple">#1A007BFF</color>
+
+    <color name="dangerKey">#F00</color>
+    <color name="dangerKeyRipple">#1AFF0000</color>
+
+    <color name="successKey">#008577</color>
+    <color name="successKeyRipple">#1A008577</color>
 </resources>

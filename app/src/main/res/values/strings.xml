@@ -5,8 +5,29 @@
     <string name="to_base">To</string>
     <string name="helper_input">Enter the number you want to convert</string>
     <string name="hint_input">From base</string>
-    <string name="button_convert">Convert</string>
-    <string name="button_reset">Reset</string>
+
     <string name="hint_converted">To base</string>
-    <string name="helper_converted"></string>
+    <string name="helper_converted">Converted</string>
+
+    <!-- Buttons -->
+    <string name="button_0">0</string>
+    <string name="button_1">1</string>
+    <string name="button_2">2</string>
+    <string name="button_3">3</string>
+    <string name="button_4">4</string>
+    <string name="button_5">5</string>
+    <string name="button_6">6</string>
+    <string name="button_7">7</string>
+    <string name="button_8">8</string>
+    <string name="button_9">9</string>
+    <string name="button_a">a</string>
+    <string name="button_b">b</string>
+    <string name="button_c">c</string>
+    <string name="button_d">d</string>
+    <string name="button_e">e</string>
+    <string name="button_f">f</string>
+    <string name="button_delete">delete</string>
+    <string name="button_reset">reset</string>
+    <string name="button_convert">convert</string>
+
 </resources>

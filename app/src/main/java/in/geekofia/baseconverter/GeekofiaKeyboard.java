@@ -13,9 +13,10 @@ import com.google.android.material.button.MaterialButton;
 
 public class GeekofiaKeyboard extends LinearLayout implements View.OnClickListener {
 
-    private MaterialButton button1, button2, button3, button4,
-            button5, button6, button7, button8,
-            button9, button0, buttonDelete, buttonEnter;
+    private MaterialButton button1, button2, button3, button4, button5,
+            button6, button7, button8, button9, button0,
+            buttonA, buttonB, buttonC, buttonD, buttonE, buttonF,
+            buttonDelete, buttonReset, buttonConvert;
 
     private SparseArray<String> keyValues = new SparseArray<>();
     private InputConnection inputConnection;
@@ -55,6 +56,18 @@ public class GeekofiaKeyboard extends LinearLayout implements View.OnClickListen
         button9.setOnClickListener(this);
         button0 = findViewById(R.id.button_0);
         button0.setOnClickListener(this);
+        buttonA = findViewById(R.id.button_a);
+        buttonA.setOnClickListener(this);
+        buttonB = findViewById(R.id.button_b);
+        buttonB.setOnClickListener(this);
+        buttonC = findViewById(R.id.button_c);
+        buttonC.setOnClickListener(this);
+        buttonD = findViewById(R.id.button_d);
+        buttonD.setOnClickListener(this);
+        buttonE = findViewById(R.id.button_e);
+        buttonE.setOnClickListener(this);
+        buttonF = findViewById(R.id.button_f);
+        buttonF.setOnClickListener(this);
         buttonDelete = findViewById(R.id.button_delete);
         buttonDelete.setOnClickListener(this);
 
@@ -68,6 +81,12 @@ public class GeekofiaKeyboard extends LinearLayout implements View.OnClickListen
         keyValues.put(R.id.button_8, "8");
         keyValues.put(R.id.button_9, "9");
         keyValues.put(R.id.button_0, "0");
+        keyValues.put(R.id.button_a, "A");
+        keyValues.put(R.id.button_b, "B");
+        keyValues.put(R.id.button_c, "C");
+        keyValues.put(R.id.button_d, "D");
+        keyValues.put(R.id.button_e, "E");
+        keyValues.put(R.id.button_f, "F");
     }
 
     @Override
