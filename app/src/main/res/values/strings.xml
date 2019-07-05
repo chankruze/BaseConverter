@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">BaseConverter</string>
+
+    <string name="from_base">From</string>
+    <string name="to_base">To</string>
+    <string name="helper_input">Enter the number you want to convert</string>
+    <string name="hint_input">From base</string>
+    <string name="button_convert">Convert</string>
+    <string name="button_reset">Reset</string>
+    <string name="hint_converted">To base</string>
+    <string name="helper_converted"></string>
+</resources>
