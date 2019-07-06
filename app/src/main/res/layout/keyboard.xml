@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    android:padding="16dp">
 
     <LinearLayout
         android:layout_width="0dp"
@@ -16,6 +17,15 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:orientation="horizontal">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_0"
+                style="@style/NormalKeys"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/button_0"
+                android:textSize="24sp" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_1"
@@ -44,6 +54,14 @@
                 android:text="@string/button_3"
                 android:textSize="24sp" />
 
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_4"
                 style="@style/NormalKeys"
@@ -62,14 +80,6 @@
                 android:text="@string/button_5"
                 android:textSize="24sp" />
 
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="horizontal">
-
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_6"
                 style="@style/NormalKeys"
@@ -87,6 +97,14 @@
                 android:layout_weight="1"
                 android:text="@string/button_7"
                 android:textSize="24sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_8"
@@ -107,23 +125,6 @@
                 android:textSize="24sp" />
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/button_0"
-                style="@style/NormalKeys"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/button_0"
-                android:textSize="24sp" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-            <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_a"
                 style="@style/NormalKeys"
                 android:layout_width="0dp"
@@ -140,6 +141,14 @@
                 android:layout_weight="1"
                 android:text="@string/button_b"
                 android:textSize="24sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_c"
