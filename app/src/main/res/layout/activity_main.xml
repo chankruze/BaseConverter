@@ -103,12 +103,10 @@
                 android:focusable="false" />
         </com.google.android.material.textfield.TextInputLayout>
 
-
         <in.geekofia.baseconverter.GeekofiaKeyboard
             android:id="@+id/keyboard"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
             android:visibility="gone"/>
 
     </LinearLayout>

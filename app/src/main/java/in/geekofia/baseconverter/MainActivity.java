@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private TextInputLayout mInputNumber, mConvertedNumber;
     private TextInputEditText mInputNumberEditText, mConvertedNumberEditText;
     private MaterialButton mButtonReset, mButtonConvert;
-    private int mSelectedBaseFrom, mSelectedBaseTo;
+    private String mSelectedBaseFrom, mSelectedBaseTo;
     private GeekofiaKeyboard keyboard;
     private TextView mButtonSwap;
 
@@ -38,9 +38,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 String baseSplitFrom[] = mFromBaseSpinner.getSelectedItem().toString().split(" ");
-                mSelectedBaseFrom = Integer.parseInt(baseSplitFrom[0]);
+                mSelectedBaseFrom = baseSplitFrom[0];
 
-                if (mSelectedBaseFrom == 16) {
+                if (Integer.parseInt(mSelectedBaseFrom) == 16) {
                     mInputNumberEditText.setInputType(InputType.TYPE_CLASS_TEXT);
                     mInputNumberEditText.setTextIsSelectable(true);
 
@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 String baseSplitTo[] = mToBaseSpinner.getSelectedItem().toString().split(" ");
-                mSelectedBaseTo = Integer.parseInt(baseSplitTo[0]);
+                mSelectedBaseTo = baseSplitTo[0];
 
                 String mHintToBase = baseSplitTo[1];
                 mHintToBase = mHintToBase.replace("(", "");
@@ -139,9 +139,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.button_swap:
-                int mFromSelecton = mFromBaseSpinner.getSelectedItemPosition();
+                int mFromSelection = mFromBaseSpinner.getSelectedItemPosition();
                 mFromBaseSpinner.setSelection(mToBaseSpinner.getSelectedItemPosition());
-                mToBaseSpinner.setSelection(mFromSelecton);
+                mToBaseSpinner.setSelection(mFromSelection);
                 break;
 
             case R.id.button_reset:
@@ -150,8 +150,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
             case R.id.button_convert:
-                String test = mInputNumberEditText.getText().toString();
-                mConvertedNumberEditText.setText(test);
+                String number = mInputNumberEditText.getText().toString();
+                BaseConverter baseConverter = new BaseConverter(mSelectedBaseFrom, mSelectedBaseTo, number);
+                mConvertedNumberEditText.setText(baseConverter.convert());
                 break;
         }
     }
